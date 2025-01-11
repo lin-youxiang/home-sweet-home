@@ -1,0 +1,22 @@
+docker run -itd \
+    --name moviepilot-v2 \
+    --hostname moviepilot-v2 \
+    --network host \
+    --restart unless-stopped \
+    -v "/var/run/docker.sock:/var/run/docker.sock:ro" \
+    -v "${HOME_SERVER}/moviepilot-v2/config:/config" \
+    -v "${HOME_SERVER}/moviepilot-v2/core:/moviepilot/.cache/ms-playwright" \
+    -e "TZ=Asia/Shanghai" \
+    -e "PUID=0" \
+    -e "PGID=0" \
+    -e "UMASK=000" \
+    -e "NGINX_PORT=11109" \
+    -e "PORT=11110" \
+    -e "SUPERUSER=admin" \
+    -e "AUTH_SITE=hdfans" \
+    -e "HDFANS_UID=" \
+    -e "HDFANS_PASSKEY=" \
+    -e "SEARCH_MULTIPLE_NAME=true" \
+    -e "MOVIE_RENAME_FORMAT={{title}}/{{title}}{% if year %} ({{year}}){% endif %}{% if part %}-{{part}}{% endif %}{{fileExt}}" \
+    -e "TV_RENAME_FORMAT={{title}}/Season {{season}}/{{title}} - {{season_episode}}{% if part %}-{{part}}{% endif %}{% if episode_title %} - {{episode_title}}{% endif %}{{fileExt}}" \
+    jxxghp/moviepilot-v2:latest
