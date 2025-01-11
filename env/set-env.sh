@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# source ./set-env.sh
+
 # Set the HOME_SERVER environment variable to the Home subdirectory under the current user's Home directory
 export HOME_SERVER=$HOME/Home
 
