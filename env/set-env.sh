@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# 设置 HOME_SERVER 环境变量为当前用户的 Home 目录下的 Home 子目录
+# Set the HOME_SERVER environment variable to the Home subdirectory under the current user's Home directory
 export HOME_SERVER=$HOME/Home
 
-# 如果目录不存在，创建该目录
+# If the directory does not exist, create the directory
 if [ ! -d "$HOME_SERVER" ]; then
     mkdir -p "$HOME_SERVER"
 fi
 
-# 输出设置的环境变量，用于确认
+# Output the set environment variables for confirmation
 echo "HOME_SERVER has been set to: $HOME_SERVER"
